@@ -7,7 +7,7 @@
 
       <div class="autocomplete__inputs">
         <input
-          v-model="display"
+          :value="display"
           :placeholder="placeholder"
           :disabled="disableInput"
           :maxlength="maxlength"
@@ -231,7 +231,8 @@ export default {
     /**
      * Search wrapper method
      */
-    search () {
+    search (event) {
+      this.display = event.target.value
       this.selectedIndex = null
       switch (true) {
         case typeof this.source === 'string':
